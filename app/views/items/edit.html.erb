@@ -1,0 +1,31 @@
+<style>
+  .edit_item{
+    height:400px;
+    overflow: scroll;
+}
+</style>
+<%= nested_form_for @item, :url=>"/items/update", :html => {:multipart => true} do |f| %>
+   <%=f.hidden_field :id%>
+  <%= f.label :item_name, "Name" %>
+  <%= f.text_field :item_name %></br>
+  <%= f.label :category %>
+  <%= f.select :category_id, Category.all.collect { |c| [ c.name, c.id ] }, { :prompt =>'Select Category' } %> </br>
+  <%= f.label :kitchen%>
+  <%= f.select :kitchen_id, Kitchen.all.collect { |c| [ c.name, c.id ] }, { :prompt =>'Select Kitchen' } %> </br>
+  <%= f.label :description %>
+  <%= f.text_area :description, :cols => 20, :rows => 10 %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.fields_for :attachments do |attachment_form|%>
+  
+    <p>
+    <%= attachment_form.label :image %>
+    <%= attachment_form.file_field :image %></br>
+ <div><%= image_tag(attachment_form.object.image_url,:size=>"50x50") %></div>
+    </p>
+    <%= attachment_form.link_to_remove "Remove this attachment" %>
+  <% end %>
+  <%= f.link_to_add "Add attachment", :attachments %></br>
+
+  <%= f.submit %>
+<% end %>
