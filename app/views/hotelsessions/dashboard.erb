@@ -1,3 +1,12 @@
+<script>
+  $(function() {
+  $('.datepicker1').datepicker({dateFormat: 'dd-mm-yy'});
+
+});
+
+</script>
+
+
 <%#*<script>%>
   <%#*function view(order)%>
   <%#*{%>
@@ -27,12 +36,7 @@
   <%#*You need to sign in or sign up before continuing.%>
 
 <%#*</script>%>
-<script>
-  $(function() {
-  $('.datepicker').datepicker();
-});
 
-</script>
 <style>
   select {
 width: 70px;
@@ -89,10 +93,10 @@ background-color: white;
 
     
       <%= label_tag  'start Date'%>
-      <%= text_field_tag 'sorting[start_date]',nil, :class => 'datepicker'%>
+      <%= text_field_tag 'sorting[start_date]',nil, :class => 'datepicker1'%>
     
       <%= label_tag 'end Date' %>
-      <%= text_field_tag 'sorting[end_date]',nil, :class => 'datepicker'%>
+      <%= text_field_tag 'sorting[end_date]',nil, :class => 'datepicker1'%>
     </div>
    <div style ="float: right;margin-right:  130px;margin-top: -105px;">
    <%=  submit_tag "OK",:class=>'btn-large btn-success', :id => 'my_button'%>

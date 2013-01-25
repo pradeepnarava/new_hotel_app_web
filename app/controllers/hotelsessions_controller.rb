@@ -228,8 +228,10 @@ authorize! :billing, [@orders, @customers]
         flash[:error]= 'Dates should not be empty!'
         redirect_to :controller => 'hotelsessions', :action => 'dashboard'
       else
-      @sd = Date.parse( params[:sorting][:start_date].split('-').reverse!.join('-'))
-      @ed = Date.parse( params[:sorting][:end_date].split('-').reverse!.join('-'))
+      #@sd = Date.parse( params[:sorting][:start_date].split('-').reverse!.join('-'))
+      #@ed = Date.parse( params[:sorting][:end_date].split('-').reverse!.join('-'))
+      @sd = Date.parse( params[:sorting][:start_date])
+      @ed = Date.parse( params[:sorting][:end_date])
       if @sd > @ed
         flash[:error] = 'Oops! Start Date should not be erlier than end date. Please try again!'
       else
@@ -317,8 +319,10 @@ authorize! :billing, [@orders, @customers]
         flash[:error]= 'Dates should not be empty!'
         redirect_to :controller => 'hotelsessions', :action => 'inventory'
       else
-      @sd = Date.parse( params[:sorting][:start_date].split('-').reverse!.join('-'))
-      @ed = Date.parse( params[:sorting][:end_date].split('-').reverse!.join('-'))
+#      @sd = Date.parse( params[:sorting][:start_date].split('-').reverse!.join('-'))
+#      @ed = Date.parse( params[:sorting][:end_date].split('-').reverse!.join('-'))
+@sd = Date.parse( params[:sorting][:start_date])
+      @ed = Date.parse( params[:sorting][:end_date])
       if @sd > @ed
         flash[:error] = 'Oops! Start Date should not be erlier than end date. Please try again!'
       else

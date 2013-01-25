@@ -1,6 +1,6 @@
 <script>
   $(function() {
-  $('.datepicker').datepicker();
+ $('.datepicker1').datepicker({dateFormat: 'dd-mm-yy'});
 });
 
 </script>
@@ -41,11 +41,11 @@
 
 
       <%= label_tag  'start Date'%>
-      <%= text_field_tag 'sorting[start_date]',nil, :class => 'datepicker'%>
+      <%= text_field_tag 'sorting[start_date]',nil, :class => 'datepicker1'%>
 
 
       <%= label_tag 'end Date' %>
-      <%= text_field_tag 'sorting[end_date]',nil, :class => 'datepicker'%>
+      <%= text_field_tag 'sorting[end_date]',nil, :class => 'datepicker1'%>
 
   </div>
  <div style ="margin-top:50px;padding:20px;">
