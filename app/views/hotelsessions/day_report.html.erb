@@ -26,7 +26,7 @@
         <%#*<td></td>%>
         
           <tr><td><%=i.item_name%></td>
-            <td><%=i.orderlists.sum(:quantity)%></td> <td><%=i.price%> </td><td><%=i.orderlists.sum(:price)%></td>
+            <td><%=i.orderlists.sum(:quantity,:conditions=>{:created_at=>(Date.today.to_time..Date.tomorrow.to_time)})%></td> <td><%=i.price%> </td><td><%=i.orderlists.sum(:price,:conditions=>{:created_at=>(Date.today.to_time..Date.tomorrow.to_time)})%></td>
 <%end%>
           <%end%></tr>
 

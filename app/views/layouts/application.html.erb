@@ -34,7 +34,13 @@
     *background-color: #51a351;
     Darken IE7 buttons by default so they stand out more given they won't have borders */
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+     font-family:fantasy;
+
     }
+    .main_body.table{
+      font-family:monospace;
+      font-weight:900;
+}
 </style>
 <body class="main_body">
   <div style="background-color:black;height:150px;margin-top: -1.7%;">
@@ -60,8 +66,10 @@
         <li><%=link_to "Kitchens",'/kitchens/kitchen',:class=>"btn-large btn-success"%></li>
         <li><%#=link_to "Items",'/items/show',:class=>'btn-large btn-info'%></li>
         <%#=link_to "Add Tax", {:controller=>'tables',:action=>'new'},:class=>'btn btn-warning'%>
-        <li><%=link_to "Reports",'/reports/show',:class=>"btn-large btn-success"%></li>
         <li><%=link_to "Inventory",'/hotelsessions/check_inventory',:class=>"btn-large btn-info"%></li>
+        <li><%=link_to "Reports",'/reports/show',:class=>"btn-large btn-success"%></li>
+
+        <li><%=link_to "Analysis",'/reports/analysis',:class=>"btn-large btn-info"%></li>
         <li><%#=link_to "Day Report",'/hotelsessions/day_report',:class=>"btn-large btn-success"%></li>
         <li><%#=link_to "Inventory",'/hotelsessions/inventory',:class=>"btn-large btn-info"%></li>
         <li><%#= link_to "Manage Users", '/manage_users/index', :class => "btn-small btn-primary"%> </li>

@@ -26,7 +26,7 @@ class DeliveryItem < ActiveRecord::Base
   validates :stock_list_item_id, :presence => true
   validates :mrp, :presence => true
   validates :quantity, :presence => true
-  #after_initialize :init
+  after_initialize :init
   def item_name=(x)
     @s= StockListItem.create(:name=>x)
     @s.delivery_item<<self
@@ -34,9 +34,9 @@ class DeliveryItem < ActiveRecord::Base
   def item_name
     StockListItem.find(self.stock_list_item_id).name
   end
-#  def init
+  def init
 #    #self.count ||= 15
 #    self.user_id ||= current_user.id
-#    self.payment_status ||= 0
-#  end
+ self.payment_status ||= 0
+ end
 end

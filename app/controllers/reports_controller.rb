@@ -23,4 +23,24 @@ def update_all_order
   end
   render :text=> "Sucessfully Delivered"
 end
+def analysis
+
+  end
+  def analysis_last
+    @sc=StockCount.find(:last)
+    @previous_stock_count=StockCount.find(:last,:conditions=>['created_at <?',@sc.created_at])
+       analysis_from_start if @previous_stock_count.nil?
+    unless @sc.nil?
+      @remaining_items=@sc.remaining_items
+    end
+    render :layout=>false
+  end
+  def analysis_from_start
+@sc=StockCount.find(:last)
+
+unless @sc.nil?
+      @remaining_items=@sc.remaining_items
+    end
+    render :layout=>false
+  end
 end

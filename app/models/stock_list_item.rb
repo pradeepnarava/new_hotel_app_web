@@ -21,6 +21,8 @@ class StockListItem < ActiveRecord::Base
   has_many :deliveries, :through=>:delivery_items
   has_many :delivery_items
   has_many :internal_orders
+  has_many :items, :through=>:recipes
+  has_many :recipes
   accepts_nested_attributes_for :delivery_items, :allow_destroy => true
 
 

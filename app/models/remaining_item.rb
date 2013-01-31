@@ -18,10 +18,13 @@ class RemainingItem < ActiveRecord::Base
   belongs_to :stock_count
   belongs_to :stock_list_item
   belongs_to :users
+  def name
+    self.stock_list_item.name
+  end
   #after_initialize :init
-  #def init
-    #self.count ||= 15
-    #self.user_id ||= current_user.id
-    #self.cancel_item ||= false
-  #end
+#  def init
+#    #self.count ||= 15
+#    #self.user_id ||= current_user.id
+#    self.cancel_item ||= false
+#  end
 end

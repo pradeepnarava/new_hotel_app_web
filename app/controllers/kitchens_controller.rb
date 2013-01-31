@@ -103,7 +103,7 @@ class KitchensController < ApplicationController
       ol.status=1
       ol.save
     end
-    if ord.orderlists.count(:conditions=>{:status=>0})==0 then
+    if @order.orderlists.count(:conditions=>{:status=>0})==0 then
       @order.status=1
       @order.save
     end

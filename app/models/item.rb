@@ -14,7 +14,7 @@
 class Item < ActiveRecord::Base
 
    resourcify
-  attr_accessible :item_name, :price, :category_id,:counter_id, :description, :attachments_attributes,:kitchen_id
+  attr_accessible :item_name, :price, :category_id,:counter_id, :description, :attachments_attributes,:kitchen_id,:recipes_attributes
   validates :item_name, :presence => true, :uniqueness => true
 
   #has_many :customers, :through=>:orders, :dependent=>:destroy
@@ -22,6 +22,9 @@ class Item < ActiveRecord::Base
   belongs_to :category
   has_many :orderlists
   has_many :counter_orders
+  has_many :stock_list_items, :through=>:recipes
+  has_many :recipes, :dependent => :destroy
+  accepts_nested_attributes_for :recipes, :allow_destroy => true
   has_many :attachments, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :attachments, :allow_destroy => true
   belongs_to :counter
